@@ -1,0 +1,20 @@
+<div class="container" [style.background-color]="currentSong.color">
+  <div *ngIf="idTrack != currentSong.trackId">
+    <ion-img [src]="currentSong.artworkUrl100" class="sizeImage70" ></ion-img>
+  </div>
+  <div *ngIf="idTrack == currentSong.trackId">
+    <ion-img class="sizeImage90" [src]="currentSong.artworkUrl100"></ion-img>
+  </div>
+  <div class="container-60">
+    <div class="numberLine">{{currentSong.artistName}}</div>
+    <div class="numberLine">{{currentSong.trackName}}</div>
+    <div class="numberLine" *ngIf="idTrack == currentSong.trackId">{{currentSong.kind === 'music-video' ? (currentSong.trackTimeMillis | date:'mm:ss') : (currentSong.trackTimeMillis | date:'hh:mm:ss') }}</div>
+    <div class="numberLine" *ngIf="idTrack == currentSong.trackId">{{currentSong.releaseDate | date}}</div>
+    <div *ngIf="idTrack == currentSong.trackId">{{currentSong.trackPrice}} {{currentSong.currency}}</div>
+  </div>
+  <div class="container-20" *ngIf="idTrack != currentSong.trackId">
+    <div>{{currentSong.trackPrice}} {{currentSong.currency}}</div>
+  </div>
+</div>
+      
+    

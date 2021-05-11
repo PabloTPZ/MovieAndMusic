@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mojix Music App</ion-title>
+    <div slot="end">
+      <ion-label>Music/Movie</ion-label>
+      <ion-toggle (ionChange)="movieOrMusic($event)"></ion-toggle>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-searchbar (ionChange)="searchArtist($event)"  debounce="1000"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let soung of soungs; let i = index" >  
+      <ion-grid>
+        <!--(click)="rowClick(soung.trackId)" expandable click effect-->
+        <app-song [currentSong]="soung" (click)="timerItem(i)" [idTrack]="idTrack" >
+        </app-song>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+</ion-content>
